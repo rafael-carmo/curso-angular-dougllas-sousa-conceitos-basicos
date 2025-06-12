@@ -2,6 +2,14 @@
   <div class="form-box">
     <form #frm="ngForm" (ngSubmit)="calcularResultado()">
         <h2>Calculadora</h2>
+
+        <label for="numero1">Operação</label>
+        <select name="operacao" id="operacao" [(ngModel)]="operacao" (change)="onChange($event)">
+          @for (operacao of operacoes; track operacao.value) {
+            <option [value]="operacao.value">{{operacao.label}}</option>
+          }
+        </select>
+
         <label for="numero1">Número 1</label>
         <input type="number" name="numero1" id="numero1" [(ngModel)]="numero1"/>
 
